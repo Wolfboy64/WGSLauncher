@@ -17,7 +17,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel x:Name="LoginPage" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1" Background="Aqua">
+        <StackPanel x:Name="LoginPage" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1" Background="DarkMagenta">
             <Grid Height="142">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -29,8 +29,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="UsernameTextBox" Height="30" FontSize="16" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" KeyDown="UsernameTextBox_KeyDown"/>
-                <PasswordBox x:Name="PasswordBox" Height="30" FontSize="16" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+                <Button x:Name="Connect" Grid.Column="1" Grid.Row="1" Click="Connect_Click">Csatlakozás</Button>
             </Grid>
             
         </StackPanel>

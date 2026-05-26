@@ -38,15 +38,6 @@ namespace WorkLauncher
         }
 
         // Az eseménykezelőt async-é tesszük, hogy megvárhassa a hálózati kérést
-        private async void UsernameTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                UsernameTextBox.IsEnabled = false;
-                await QueryMtaServerAsync();
-                UsernameTextBox.IsEnabled = true;
-            }
-        }
 
         public async Task QueryMtaServerAsync()
         {
@@ -118,6 +109,11 @@ namespace WorkLauncher
                 MessageBox.Show($"Nem sikerült elindítani az MTA-t a protokollon keresztül: {ex.Message}",
                                 "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private async void Connect_Click(object sender, RoutedEventArgs e)
+        {
+            await QueryMtaServerAsync();
         }
     }
 
