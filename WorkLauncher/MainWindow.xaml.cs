@@ -33,8 +33,9 @@ namespace WorkLauncher
         public MainWindow()
         {
             InitializeComponent();
-
-
+            var a = Database.Connect();
+            MessageBox.Show(a.ToString());
+            //datagridACCs.ItemsSource = Database.GetAccounts();
         }
 
         // Az eseménykezelőt async-é tesszük, hogy megvárhassa a hálózati kérést
@@ -114,6 +115,7 @@ namespace WorkLauncher
         private async void Connect_Click(object sender, RoutedEventArgs e)
         {
             await QueryMtaServerAsync();
+            
         }
     }
 
