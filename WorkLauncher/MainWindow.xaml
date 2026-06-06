@@ -63,6 +63,28 @@
                         FontSize="16" Margin="151,0,10,0" Grid.Row="3" Height="42" VerticalAlignment="Center" />
             </Grid>
         </StackPanel>
+        <StackPanel x:Name="UpdatePanel" 
+                    Visibility="Hidden"
+                    Background="Green" 
+                    Grid.ColumnSpan="3" 
+                    Grid.RowSpan="3">
+            <Grid Height="427">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label x:Name="UpdateLbl" Content="Frissítési információk:" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                <DataGrid x:Name="ChangelogsDGrid" Margin="0,87,0,0" Grid.RowSpan="3" />
+                <Button x:Name="BackpdatePanel"
+                        Content="Vissza" 
+                        Click="BackpdatePanel_Click"
+                        Grid.Row="3"
+                        Style="{StaticResource ModernBottomBorderStyle}"
+                        FontSize="16" Margin="204,10,204,0" Height="53"/>
+            </Grid>
+        </StackPanel>
         <StackPanel x:Name="DiscordPanel" Grid.Row="1" Grid.Column="1" 
                     Background="Blue" Visibility="Hidden">
             <Grid Height="144">
@@ -82,10 +104,11 @@
         <Menu Grid.ColumnSpan="3" Background="#080A1C" Margin="0,0,0,107" VerticalAlignment="Top">
             <MenuItem x:Name="Keszitok" Header="Készítők" Foreground="Blue" Click="Keszitok_Click" FontSize="20"/>
             <MenuItem x:Name="DiscordMenu" Header="Discord" Foreground="Blue" FontSize="20" Click="DiscordMenu_Click"/>
-            <MenuItem Header="Update" Foreground="Blue" FontSize="20"/>
+            <MenuItem x:Name="UpdateMenu" Header="Update" Foreground="Blue" FontSize="20" Click="UpdateMenu_Click"/>
             <MenuItem x:Name="Exit" Header="Kilépés" Foreground="Red" FontSize="20" Click="Exit_Click"/>
 
         </Menu>
+
         <!--<DataGrid x:Name="datagridACCs" d:ItemsSource="{d:SampleData ItemCount=0}"/>-->
     </Grid>
 </Window>

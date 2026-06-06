@@ -36,6 +36,7 @@ namespace WorkLauncher
             //var a = Database.Connect();
             //MessageBox.Show(a.ToString());
             //datagridACCs.ItemsSource = Database.GetAccounts();
+            
         }
 
         // Az eseménykezelőt async-é tesszük, hogy megvárhassa a hálózati kérést
@@ -139,6 +140,7 @@ namespace WorkLauncher
         {
             AboutPage.Visibility = Visibility.Visible;
             if (DiscordPanel.Visibility == Visibility.Visible) { DiscordPanel.Visibility = Visibility.Hidden; }
+            if (UpdatePanel.Visibility == Visibility.Visible) { UpdatePanel.Visibility = Visibility.Hidden; }
         }
         private void BackAboutButton_Click_1(object sender, RoutedEventArgs e)
         {
@@ -153,6 +155,7 @@ namespace WorkLauncher
         private void DiscordMenu_Click(object sender, RoutedEventArgs e)
         {
             if (AboutPage.Visibility == Visibility.Visible) { AboutPage.Visibility = Visibility.Hidden; }
+            if (UpdatePanel.Visibility == Visibility.Visible) { UpdatePanel.Visibility = Visibility.Hidden; }
             DiscordPanel.Visibility = Visibility.Visible;
         }
 
@@ -161,7 +164,31 @@ namespace WorkLauncher
             DiscordPanel.Visibility = Visibility.Hidden;
         }
 
-        
+        private void UpdateMenu_Click(object sender, RoutedEventArgs e)
+        {
+            UpdatePanel.Visibility = Visibility.Visible;
+            if (AboutPage.Visibility == Visibility.Visible) { AboutPage.Visibility = Visibility.Hidden; }
+            if (DiscordPanel.Visibility == Visibility.Visible) { DiscordPanel.Visibility = Visibility.Hidden; }
+
+
+            List<Changelog> changelogs = Database.GetChangelog();
+            if (changelogs.Count > 0)
+            {
+                UpdateLbl.Content = $"Frissítések: ({changelogs.Count}) db frissítés elérhető";
+                ChangelogsDGrid.ItemsSource = changelogs;
+            }
+            else
+            {
+                UpdateLbl.Content = "Frissítések: Nincsenek elérhető frissítések";
+                ChangelogsDGrid.Visibility = Visibility.Hidden;
+            }
+
+        }
+
+        private void BackpdatePanel_Click(object sender, RoutedEventArgs e)
+        {
+            UpdatePanel.Visibility = Visibility.Hidden;
+        }
     }
 
 }
