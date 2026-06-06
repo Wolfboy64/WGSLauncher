@@ -33,8 +33,8 @@ namespace WorkLauncher
         public MainWindow()
         {
             InitializeComponent();
-            var a = Database.Connect();
-            MessageBox.Show(a.ToString());
+            //var a = Database.Connect();
+            //MessageBox.Show(a.ToString());
             //datagridACCs.ItemsSource = Database.GetAccounts();
         }
 
@@ -117,6 +117,51 @@ namespace WorkLauncher
             await QueryMtaServerAsync();
             
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            AboutPage.Visibility = Visibility.Hidden;
+        }
+
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BackAboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            AboutPage.Visibility = Visibility.Visible;
+            
+        }
+
+        private void Keszitok_Click(object sender, RoutedEventArgs e)
+        {
+            AboutPage.Visibility = Visibility.Visible;
+            if (DiscordPanel.Visibility == Visibility.Visible) { DiscordPanel.Visibility = Visibility.Hidden; }
+        }
+        private void BackAboutButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            AboutPage.Visibility = Visibility.Hidden;
+        }
+        private void ConnectDCLabel_Click(object sender, RoutedEventArgs e)
+        {
+            string url = "https://discord.gg/pFQcTzMRx2";
+            Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+        }
+
+        private void DiscordMenu_Click(object sender, RoutedEventArgs e)
+        {
+            if (AboutPage.Visibility == Visibility.Visible) { AboutPage.Visibility = Visibility.Hidden; }
+            DiscordPanel.Visibility = Visibility.Visible;
+        }
+
+        private void BackDiscordButton_Click(object sender, RoutedEventArgs e)
+        {
+            DiscordPanel.Visibility = Visibility.Hidden;
+        }
+
+        
     }
 
 }

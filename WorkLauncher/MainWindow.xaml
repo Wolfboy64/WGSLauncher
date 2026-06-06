@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkLauncher"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="Gray" MinWidth="800" MaxWidth="800" MinHeight="450" MaxHeight="450">
+        Title="MainWindow"
+        Height="450"
+        Width="800" Background="Gray" MinWidth="800" MaxWidth="800" MinHeight="450" MaxHeight="450">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -18,7 +20,13 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel x:Name="LoginPage" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1" Background="DarkMagenta">
+        <StackPanel x:Name="LoginPage" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Gray" Offset="0"/>
+                    <GradientStop Color="#FFD300EA" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
             <Grid Height="143">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -31,9 +39,53 @@
                 Style="{StaticResource ModernBottomBorderStyle}" FontSize="20" Margin="27,0,27,0" Grid.Row="1"/>
                 <Label Content="WorkLauncher v1.2" FontSize="30" HorizontalAlignment="Center" Foreground="White"  VerticalAlignment="Center" Grid.Row="2"/>
             </Grid>
-                
+
 
         </StackPanel>
+        <StackPanel x:Name="AboutPage" Background="DarkBlue" Grid.Row="1" 
+                    Grid.Column="1" 
+                    Visibility="Hidden" Margin="0,0,0,100" Grid.RowSpan="2" >
+            <Grid Height="171">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+
+                </Grid.RowDefinitions>
+                <Label Content="Készítette: Wolfy" FontSize="20" HorizontalAlignment="Center" Foreground="White"  VerticalAlignment="Center" Grid.Row="0"/>
+                <Label Content="Tesztelte: Adiusz, DarkRift" FontSize="20" HorizontalAlignment="Center" Foreground="White"  VerticalAlignment="Center" Grid.Row="1"/>
+                <Label Content="Külön köszönet neki: Rezzy" FontSize="20" Foreground="White" Grid.Row="2" HorizontalAlignment="Center"/>
+                <Button x:Name="BackAboutButton"
+                        Content="Vissza" 
+                        Click="BackAboutButton_Click_1"
+                        Style="{StaticResource ModernBottomBorderStyle}"
+                        FontSize="16" Margin="151,0,10,0" Grid.Row="3" Height="42" VerticalAlignment="Center" />
+            </Grid>
+        </StackPanel>
+        <StackPanel x:Name="DiscordPanel" Grid.Row="1" Grid.Column="1" 
+                    Background="Blue" Visibility="Hidden">
+            <Grid Height="144">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button x:Name="ConnectDCLabel" Style="{StaticResource ModernBottomBorderStyle}" Content="Csatlakozz a Discord szerverünkhöz!" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ConnectDCLabel_Click" />
+                <Button x:Name="BackDiscordButton"
+                        Content="Vissza" 
+                        Click="BackDiscordButton_Click"
+                        Style="{StaticResource ModernBottomBorderStyle}"
+                        FontSize="16" Margin="151,0,10,0" Grid.Row="1" Height="42" VerticalAlignment="Center" />
+            </Grid>
+
+        </StackPanel>
+        <Menu Grid.ColumnSpan="3" Background="#080A1C" Margin="0,0,0,107" VerticalAlignment="Top">
+            <MenuItem x:Name="Keszitok" Header="Készítők" Foreground="Blue" Click="Keszitok_Click" FontSize="20"/>
+            <MenuItem x:Name="DiscordMenu" Header="Discord" Foreground="Blue" FontSize="20" Click="DiscordMenu_Click"/>
+            <MenuItem Header="Update" Foreground="Blue" FontSize="20"/>
+            <MenuItem x:Name="Exit" Header="Kilépés" Foreground="Red" FontSize="20" Click="Exit_Click"/>
+
+        </Menu>
         <!--<DataGrid x:Name="datagridACCs" d:ItemsSource="{d:SampleData ItemCount=0}"/>-->
     </Grid>
 </Window>
