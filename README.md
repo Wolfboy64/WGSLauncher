@@ -10,4 +10,13 @@
 # Fontos:
 ## -> Hogyha a .exe telepítő nem működik, akkor a .msi telepítőt próbáld meg!
 
+## Change log
+# 1.3-as verzió:
+### Új funkciók:
+- Bekerült a Discord szerverhez való csatlakozás
+- Bekerült a készítők panel
+- valamint a kilépés ami csak a launchert zárja be.
+### Nem implementált funkciók
+- Bekerült egy update-ok menüpont is, ennek azonban még nincs funkciója.
+
 ### --- Egyéb hiba esetén keress fel DC-n **wolfy9058**
