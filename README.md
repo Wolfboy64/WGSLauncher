@@ -16,7 +16,9 @@
 - Bekerült a Discord szerverhez való csatlakozás
 - Bekerült a készítők panel
 - valamint a kilépés ami csak a launchert zárja be.
-### Nem implementált funkciók
-- Bekerült egy update-ok menüpont is, ennek azonban még nincs funkciója.
+
+
+#1.4-es verzió:
+- Update menüpontnak mostmár van implementált funkciója: Adatbázisból kérdezi le a frissítéseket, majd jeleníti meg azokat egy táblázatban.
 
 ### --- Egyéb hiba esetén keress fel DC-n **wolfy9058**
