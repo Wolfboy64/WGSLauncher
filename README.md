@@ -18,7 +18,7 @@
 - valamint a kilépés ami csak a launchert zárja be.
 
 
-#1.4-es verzió:
+# 1.4-es verzió:
 - Update menüpontnak mostmár van implementált funkciója: Adatbázisból kérdezi le a frissítéseket, majd jeleníti meg azokat egy táblázatban.
 
 ### --- Egyéb hiba esetén keress fel DC-n **wolfy9058**
